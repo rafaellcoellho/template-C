@@ -23,8 +23,22 @@ CC_FLAGS=-c         \
 # Command used at clean target
 RM = rm -rf
 
+
 #
-## Checking files
+## Static analysis of the files
+#
+
+cppcheck: folder 
+
+folder: $(C_SOURCE)
+	@ echo 'Running static analysis with cppcheck in the project...'
+	@ echo ' '
+	cppcheck .
+	@ echo ' '
+	@ echo 'Finished'
+
+#
+## Checking files 
 #
 
 checkpatch: sources
