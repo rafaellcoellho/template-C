@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include "../header/helloWorld.h"
 
-int main(){
-    helloWorld();
-    return 0;
+int main(void)
+{
+helloWorld();
+return 0;
 }

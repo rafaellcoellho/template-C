@@ -24,6 +24,18 @@ CC_FLAGS=-c         \
 RM = rm -rf
 
 #
+## Checking files
+#
+
+checkpatch: sources
+
+sources: $(C_SOURCE) 
+	@ echo 'Running checkpatch in source and header files...'
+	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./header/*.h 
+	@ echo 'Finished'
+	@ echo ' '
+
+#
 ## Compilation and linking
 #
 all: objFolder $(PROJ_NAME)
@@ -48,7 +60,7 @@ objFolder:
 	@ mkdir -p objs 
 
 clean:
-	@ $(RM) ./objs/*.o $(PROJ_NAME) *~
+	@ $(RM) ./objs/*.o $(PROJ_NAME) *~ 
 	@ rmdir objs 
 
 .PHONY: all clean
