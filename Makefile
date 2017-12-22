@@ -5,10 +5,11 @@ PROJ_NAME=template
 C_SOURCE=$(wildcard ./src/*.c)
 
 # .h files
-H_SOURCE=$(wildcard ./header/*.h)
+H_SOURCE=$(wildcard ./inc/*.h)
 
 # Object files
-OBJ=$(subst .c,.o,$(subst src,objs,$(C_SOURCE)))
+OBJ=$(subst .c,.o,$(subst src,build,$(C_SOURCE)))
+
 
 # Compiler and linker
 CC=gcc
@@ -45,7 +46,7 @@ checkpatch: sources
 
 sources: $(C_SOURCE) 
 	@ echo 'Running checkpatch in source and header files...'
-	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./header/*.h 
+	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./inc/*.h 
 	@ echo 'Finished'
 	@ echo ' '
 
@@ -60,21 +61,21 @@ $(PROJ_NAME): $(OBJ)
 	@ echo 'Finished building binary: $@'
 	@ echo ' '
 
-./objs/%.o: ./src/%.c ./header/%.h
+./build/%.o: ./src/%.c ./inc/%.h
 	@ echo 'Building target using GCC compiler: $<'
 	$(CC) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
-./objs/main.o: ./src/main.c $(H_SOURCE)
+./build/main.o: ./src/main.c $(H_SOURCE)
 	@ echo 'Building target using GCC compiler: $<'
 	$(CC) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
 objFolder:
-	@ mkdir -p objs 
+	@ mkdir -p build 
 
 clean:
-	@ $(RM) ./objs/*.o $(PROJ_NAME) *~ 
-	@ rmdir objs 
+	@ $(RM) ./build/*.o $(PROJ_NAME) *~ 
+	@ rmdir build
 
 .PHONY: all clean
