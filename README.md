@@ -37,15 +37,10 @@ $ ./setup-cpputest.sh
 
 ## Usage
 
-To run static analysis:
+To run static analysis (And check encoding patterns):
 
 ```
-$ make cppcheck 
-```
-To check encoding pattern:
-
-```
-$ make checkpatch
+$ make analysis 
 ```
 
 To run the tests
@@ -57,7 +52,7 @@ make tests
 To compile:
 
 ```
-$ make all 
+$ make runnable
 ```
 
 To delete the unnecessary files:
