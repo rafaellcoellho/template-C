@@ -18,5 +18,5 @@ TEST_GROUP(helloWorld)
 
 TEST(helloWorld, test1)
 {
-    STRCMP_EQUAL("Koe", helloWorld());
+    STRCMP_EQUAL("Koe!", helloWorld());
 }

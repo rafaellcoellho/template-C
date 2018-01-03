@@ -74,8 +74,11 @@ $(PROJ_NAME): $(OBJ)
 objFolder:
 	@ mkdir -p build 
 
+test: 
+	make -f MakeTests.mk V=${V} all
+
 clean:
 	@ $(RM) ./build/*.o $(PROJ_NAME) *~ 
-	@ rmdir build
+	make -f MakeTests.mk V=${V} clean
 
 .PHONY: all clean
