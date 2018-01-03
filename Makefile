@@ -80,5 +80,6 @@ test:
 clean:
 	@ $(RM) ./build/*.o $(PROJ_NAME) *~ 
 	make -f MakeTests.mk V=${V} clean
+	@ $(RM) ./build/objs/ ./build/lib/ 
 
 .PHONY: all clean
