@@ -23,7 +23,7 @@ SRC_DIRS = \
     src
 
 TEST_SRC_DIRS = \
-    tests
+    src_tests
 
 INCLUDE_DIRS =\
     src \

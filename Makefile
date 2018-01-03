@@ -74,7 +74,7 @@ $(PROJ_NAME): $(OBJ)
 objFolder:
 	@ mkdir -p build 
 
-test: 
+tests: 
 	make -f MakeTests.mk V=${V} all
 
 clean:

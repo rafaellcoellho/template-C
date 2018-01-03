@@ -28,6 +28,12 @@ To check if it really worked:
 $ cppcheck --version
 Cppcheck 1.70
 ```
+The tests are done with [CppUTest](https://github.com/cpputest/cpputest). Once you have cloned the project, you need to run the setup-cpputest.sh script in the scripts folder. It will download the test framework inside the project tree. 
+
+```
+$ cd scripts/
+$ ./setup-cpputest.sh
+```
 
 ## Usage
 
@@ -40,6 +46,12 @@ To check encoding pattern:
 
 ```
 $ make checkpatch
+```
+
+To run the tests
+
+```
+make tests
 ```
 
 To compile:
