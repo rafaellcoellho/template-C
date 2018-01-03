@@ -1,33 +1,10 @@
-# .c files
-C_SOURCE=$(wildcard ./src/*.c)
+all: objfolder tests runnable
 
-# Command used at clean target
-RM = rm -rf
-
-#
-## Static analysis of the files
-#
-
-cppcheck: folder 
-
-folder: $(C_SOURCE)
-	@ echo 'Running static analysis with cppcheck in the project...'
-	@ echo ' '
-	cppcheck .
-	@ echo ' '
-	@ echo 'Finished'
-
-
-checkpatch: sources
-
-sources: $(C_SOURCE) 
-	@ echo 'Running checkpatch in source and header files...'
-	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./inc/*.h 
-	@ echo 'Finished'
-	@ echo ' '
-
-all: tests
+objfolder: 
 	@ mkdir -p build 
+
+analysis:
+	make -f MakeAnalysis.mk V=${V} all
 
 runnable:
 	make -f MakeRunnable.mk V=${V} all
@@ -38,4 +15,4 @@ tests:
 clean:
 	make -f MakeRunnable.mk V=${V} clean
 	make -f MakeTests.mk V=${V} clean
-	@ $(RM) ./build/objs/ ./build/lib/ 
+	@ rm -rf ./build/objs/ ./build/lib/ 
