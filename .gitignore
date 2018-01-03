@@ -6,6 +6,7 @@ objs/
 coverage/
 
 template
+template_tests
 coverage.info
 
 ### C ###
