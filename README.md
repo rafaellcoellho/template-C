@@ -6,6 +6,11 @@ Skeleton of a C application for when I need to start new projects, just clone th
 
 To analyze the code according to the linux kernel code style, the perl checkpatch script is used. In the scripts folder use dowload.sh to download directly from /torvalds/linux/scripts. Thanks to riboseinc who write the [script](https://github.com/riboseinc/checkpatch). 
 
+```
+$ cd scripts/
+$ ./download.sh
+```
+
 The static analysis of the code is done through cppcheck. If you use ubuntu 14+ or some distro based on it, you can install using:
 
 ```
