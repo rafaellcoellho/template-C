@@ -1,13 +1,16 @@
-# Created by https://www.gitignore.io/api/c
+# My ignores
 
 cpputest/
 lib/
 objs/
 coverage/
 
+checkpath.pl
 template
 template_tests
 coverage.info
+
+# Created by https://www.gitignore.io/api/c
 
 ### C ###
 # Prerequisites
