@@ -7,6 +7,9 @@ C_SOURCE=$(wildcard ./src/*.c)
 # .h files
 H_SOURCE=$(wildcard ./inc/*.h)
 
+# Folders
+H_FOLDER:=inc
+
 # Object files
 OBJ=$(subst .c,.o,$(subst src,build,$(C_SOURCE)))
 
@@ -36,17 +39,16 @@ $(PROJ_NAME): $(OBJ)
 
 ./build/%.o: ./src/%.c ./inc/%.h
 	@ echo 'Building target using GCC compiler: $<'
-	$(CC) $< $(CC_FLAGS) -o $@
+	$(CC) -I$(H_FOLDER) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
 ./build/main.o: ./src/main.c $(H_SOURCE)
 	@ echo 'Building target using GCC compiler: $<'
-	$(CC) $< $(CC_FLAGS) -o $@
+	$(CC) -I$(H_FOLDER) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
 objFolder:
-	@ mkdir -p build 
+	@ mkdir -p build
 
 clean:
-	@ $(RM) ./build/*.o $(PROJ_NAME) *~ 
-
+	@ $(RM) ./build/*.o $(PROJ_NAME) *~
