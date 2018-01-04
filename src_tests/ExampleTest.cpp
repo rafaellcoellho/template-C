@@ -1,4 +1,4 @@
-#include "../cpputest/include/CppUTest/TestHarness.h"
+#include <CppUTest/TestHarness.h>
 
 extern "C"
 {
