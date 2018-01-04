@@ -3,7 +3,7 @@
 ifeq (1,${V})
     SILENCE =
 else
-    SILENCE = @  
+    SILENCE = @
 endif
 
 ## CppUTest configurations ##
@@ -40,11 +40,11 @@ include $(CPPUTEST_HOME)/build/MakefileWorker.mk
 
 # Coverage Report rules #
 coverage: all
-	$(SILENCE)lcov --capture --directory objs/tests/src --output-file coverage.info
+	$(SILENCE)lcov --capture --directory build/objs/tests/src --output-file coverage.info
 	$(SILANCE)genhtml coverage.info --output-directory coverage
 	@echo
 	@echo "Written coverage report to coverage/index.html"
 	@echo
-	
+
 coverage_clean:
 	rm -rf coverage coverage.info

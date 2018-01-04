@@ -1,7 +1,7 @@
 all: objfolder tests runnable
 
-objfolder: 
-	@ mkdir -p build 
+objfolder:
+	@ mkdir -p build
 
 analysis:
 	make -f MakeAnalysis.mk V=${V} all
@@ -9,10 +9,14 @@ analysis:
 runnable:
 	make -f MakeRunnable.mk V=${V} all
 
-tests: 
+tests:
 	make -f MakeTests.mk V=${V} all
+
+tests_coverage:
+	make -f MakeTests.mk V=${V} coverage
 
 clean:
 	make -f MakeRunnable.mk V=${V} clean
 	make -f MakeTests.mk V=${V} clean
-	@ rm -rf ./build/objs/ ./build/lib/ 
+	make -f MakeTests.mk V=${V} coverage_clean
+	@ rm -rf ./build/objs/ ./build/lib/
