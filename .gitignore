@@ -5,7 +5,7 @@ lib/
 objs/
 coverage/
 
-checkpath.pl
+checkpatch.pl
 template
 template_tests
 coverage.info
