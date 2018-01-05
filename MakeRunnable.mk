@@ -39,12 +39,12 @@ $(PROJ_NAME): $(OBJ)
 
 ./build/%.o: ./src/%.c ./inc/%.h
 	@ echo 'Building target using GCC compiler: $<'
-	$(CC) -I$(H_FOLDER) $< $(CC_FLAGS) -o $@
+	$(CC) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
 ./build/main.o: ./src/main.c $(H_SOURCE)
 	@ echo 'Building target using GCC compiler: $<'
-	$(CC) -I$(H_FOLDER) $< $(CC_FLAGS) -o $@
+	$(CC) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
 objFolder:

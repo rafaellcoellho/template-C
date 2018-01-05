@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "helloWorld.h"
+#include "../inc/helloWorld.h"
 
 char *helloWorld(void)
 {
