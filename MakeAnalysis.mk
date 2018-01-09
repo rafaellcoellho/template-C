@@ -11,10 +11,8 @@ folder: $(C_SOURCE)
 	@ echo 'Finished'
 
 
-sources: $(C_SOURCE) 
+sources: $(C_SOURCE)
 	@ echo 'Running checkpatch in source and header files...'
-	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./inc/*.h 
+	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./src/*.h
 	@ echo 'Finished'
 	@ echo ' '
-
-

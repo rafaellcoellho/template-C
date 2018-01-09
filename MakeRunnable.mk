@@ -5,7 +5,7 @@ PROJ_NAME=template
 C_SOURCE=$(wildcard ./src/*.c)
 
 # .h files
-H_SOURCE=$(wildcard ./inc/*.h)
+H_SOURCE=$(wildcard ./src/*.h)
 
 # Folders
 H_FOLDER:=inc
@@ -24,8 +24,6 @@ CC_FLAGS=-c         \
          -ansi      \
          -pedantic
 
-RM = rm -rf
-
 #
 ## Compilation and linking
 #
@@ -37,7 +35,7 @@ $(PROJ_NAME): $(OBJ)
 	@ echo 'Finished building binary: $@'
 	@ echo ' '
 
-./build/%.o: ./src/%.c ./inc/%.h
+./build/%.o: ./src/%.c ./src/%.h
 	@ echo 'Building target using GCC compiler: $<'
 	$(CC) $< $(CC_FLAGS) -o $@
 	@ echo ' '
@@ -47,8 +45,5 @@ $(PROJ_NAME): $(OBJ)
 	$(CC) $< $(CC_FLAGS) -o $@
 	@ echo ' '
 
-objFolder:
-	@ mkdir -p build
-
 clean:
-	@ $(RM) ./build/*.o $(PROJ_NAME) *~
+	@ rm -f build/*.o $(PROJ_NAME)
