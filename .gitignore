@@ -4,8 +4,10 @@ cpputest/
 lib/
 objs/
 coverage/
+build/
 
 checkpatch.pl
+cleanfile
 template
 template_tests
 coverage.info
