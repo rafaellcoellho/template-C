@@ -21,7 +21,7 @@ CC=gcc
 CC_FLAGS=-c         \
          -W         \
          -Wall      \
-         -ansi      \
+         -std=c99   \
          -pedantic
 
 #
