@@ -2,21 +2,21 @@
 
 extern "C"
 {
-#include "../src/helloWorld.h"
+	#include "../src/helloWorld.h"
 }
 
 TEST_GROUP(helloWorld)
 {
-        void setup()
-        {
-        }
+	void setup()
+	{
+	}
 
-        void teardown()
-        {
-        }
+	void teardown()
+	{
+	}
 };
 
 TEST(helloWorld, test1)
 {
-    STRCMP_EQUAL("Koe!", helloWorld());
+	STRCMP_EQUAL("Koe!", helloWorld());
 }
