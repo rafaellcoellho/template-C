@@ -8,7 +8,7 @@ this repository.
 First you need to clone this repository on your machine.
 
 ```
-$ git clone https://github.com/rafaellcoellho/template-C.git
+$ git clone https://github.com/rafaellcoellho/template-C-makefile.git
 ```
 
 To fit the kernel linux coding style, the
