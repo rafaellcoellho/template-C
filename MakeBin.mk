@@ -1,14 +1,11 @@
 # Name of the project
-PROJ_NAME=template
+PROJ_NAME=main
 
 # .c files
 C_SOURCE=$(wildcard ./src/*.c)
 
 # .h files
 H_SOURCE=$(wildcard ./src/*.h)
-
-# Folders
-H_FOLDER:=inc
 
 # Object files
 OBJ=$(subst .c,.o,$(subst src,build,$(C_SOURCE)))
@@ -19,7 +16,7 @@ CC=gcc
 
 # Flags for compiler
 CC_FLAGS=-c         \
-	 -g	    \
+	 	 -g	    	\
          -W         \
          -Wall      \
          -std=c99   \

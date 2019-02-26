@@ -1,15 +1,7 @@
-## Silence switch ##
-# run `make V=1` to make it verbose.
-ifeq (1,${V})
-    SILENCE =
-else
-    SILENCE = @
-endif
-
 ## CppUTest configurations ##
 # Read header comment on file `$(CPPUTEST_HOME)/build/MakefileWorker.mk` to understand these definitions.
 
-COMPONENT_NAME = template
+COMPONENT_NAME = main
 CPPUTEST_HOME = cpputest
 
 CPPUTEST_ENABLE_DEBUG = Y

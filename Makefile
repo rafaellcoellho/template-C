@@ -1,22 +1,28 @@
-all: tests runnable
+all: bin run
 
-analysis:
-	make -f MakeAnalysis.mk V=${V} all
+run:
+	./main
 
-code_beautifier:
-	make -f MakeBeautifier.mk V=${V} all
+bin:
+	make -f MakeBin.mk all
 
-runnable:
-	make -f MakeRunnable.mk V=${V} all
-
+install_cpputest:
+	if [ -d /cpputest-3.8 ]; then rm -rf cpputest-3.8 ; fi
+	if [ -f /cpputest-3.8.tar.gz ]; then rm -rf cpputest-3.8.tar.gz; fi
+	wget https://github.com/cpputest/cpputest/releases/download/v3.8/cpputest-3.8.tar.gz
+	tar -xf cpputest-3.8.tar.gz
+	rm cpputest-3.8.tar.gz
+	mv cpputest-3.8 cpputest
+	cd cpputest; ./autogen.sh; ./configure; make all
+	
 tests:
-	make -f MakeTests.mk V=${V} all
+	make -f MakeTests.mk all
 
 tests_coverage:
-	make -f MakeTests.mk V=${V} coverage
+	make -f MakeTests.mk coverage
 
 clean:
-	make -f MakeRunnable.mk V=${V} clean
-	make -f MakeTests.mk V=${V} clean
-	make -f MakeTests.mk V=${V} coverage_clean
+	make -f MakeBin.mk clean
+	make -f MakeTests.mk clean
+	make -f MakeTests.mk coverage_clean
 	@ rm -rf ./build/objs/ ./build/lib/
