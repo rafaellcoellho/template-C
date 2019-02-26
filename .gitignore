@@ -1,16 +1,14 @@
 # My ignores
 
 cpputest/
-lib/
-objs/
 coverage/
-build/
 
-checkpatch.pl
-cleanfile
-template
-template_tests
+main
+main_tests
 coverage.info
+
+*.gcda
+*.gcno
 
 # Created by https://www.gitignore.io/api/c
 
