@@ -1,4 +1,4 @@
-all: tests run
+all: tests bin
 
 run:
 	./main
